@@ -1,15 +1,24 @@
-require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
+require('dotenv').config({
+  path: require('path').resolve(__dirname, '../.env')
+});
+
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Enable CORS for frontend communications
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://crm-project-7wvy-pv5fl4iar-ht-wo.vercel.app',
+  'https://crm-project-smoky-delta.vercel.app'
+];
+
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || /https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -24,7 +33,7 @@ app.use(express.json({ limit: '5mb' }));
 // Import database initializer
 const initDb = require('./database/initDb');
 
-// Connect API Routes
+// API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/services', require('./routes/services'));
@@ -42,36 +51,44 @@ app.use('/api/renew', require('./routes/renew'));
 app.use('/api/profile', require('./routes/profile'));
 app.use('/api/renewal-requests', require('./routes/renewalRequests'));
 
-// Health check endpoint
+// Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: "healthy", timestamp: new Date() });
+  res.json({
+    status: 'healthy',
+    timestamp: new Date()
+  });
 });
 
-// Serve frontend build static files in production (optional, if building)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../vendor-crm/dist')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../vendor-crm/dist/index.html'));
-  });
-}
-
-// Start Database and then Server
+// Start Database and Server
 initDb()
   .then(() => {
-    const server = app.listen(PORT, () => {
+    const server = app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server running on port ${PORT}`);
     });
 
     server.on('error', (err) => {
       if (err.code === 'EADDRINUSE') {
-        console.warn(`Port ${PORT} is already in use. Another instance is likely running.`);
+        console.warn(
+          `Port ${PORT} is already in use. Another instance is likely running.`
+        );
+
         const fallbackPort = Number(PORT) + 1;
-        const fallbackServer = app.listen(fallbackPort, () => {
-          console.log(`Safe fallback: Server running on port ${fallbackPort} for development.`);
-        });
+
+        const fallbackServer = app.listen(
+          fallbackPort,
+          '0.0.0.0',
+          () => {
+            console.log(
+              `Safe fallback: Server running on port ${fallbackPort} for development.`
+            );
+          }
+        );
 
         fallbackServer.on('error', (fallbackErr) => {
-          console.error('Fallback server failed to start:', fallbackErr.message);
+          console.error(
+            'Fallback server failed to start:',
+            fallbackErr.message
+          );
         });
       } else {
         console.error('Server error:', err);
@@ -79,8 +96,10 @@ initDb()
     });
   })
   .catch((err) => {
-    console.error('Failed to start server due to database init failure:', err);
+    console.error(
+      'Failed to start server due to database init failure:',
+      err
+    );
+
     process.exit(1);
   });
-
-
