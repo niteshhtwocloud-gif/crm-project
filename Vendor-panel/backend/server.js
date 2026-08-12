@@ -20,7 +20,7 @@ const allowedOrigins = [
   // Vercel production
   'https://crm-project-smoky-delta.vercel.app',
 
-  // Vercel production/alternate deployment
+  // Vercel alternate deployment
   'https://crm-project-7wvy-pv5fl4iar-ht-wo.vercel.app',
 
   // Current Vercel deployment / preview
@@ -79,7 +79,9 @@ app.get('/', (req, res) => {
 // API ROUTES
 // ======================================================
 
+// AUTH ROUTE - IMPORTANT
 app.use('/api/auth', require('./routes/auth'));
+
 app.use('/api/users', require('./routes/users'));
 app.use('/api/services', require('./routes/services'));
 app.use('/api/payments', require('./routes/payments'));
@@ -117,7 +119,10 @@ initDb()
       console.log(`Server running on port ${PORT}`);
     });
 
-    // Server error handling
+    // ==================================================
+    // SERVER ERROR HANDLING
+    // ==================================================
+
     server.on('error', (err) => {
       if (err.code === 'EADDRINUSE') {
         console.error(`Port ${PORT} is already in use.`);
