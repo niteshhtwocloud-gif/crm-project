@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:5000';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com/';
 
 const STORAGE_KEY = 'h2_auth';
 const TOKEN_KEY = 'h2_token';
