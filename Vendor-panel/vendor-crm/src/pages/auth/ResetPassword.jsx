@@ -5,7 +5,7 @@ import LoadingButton from '../../components/auth/LoadingButton';
 import PasswordInput from '../../components/auth/PasswordInput';
 import { useToast } from '../../context/ToastContext';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:5000';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com';
 export default function ResetPassword() {
   const { showToast } = useToast();
   const [password, setPassword] = useState('');

@@ -4,7 +4,7 @@ import '../Login/Login.css';
 import LoadingButton from '../../components/auth/LoadingButton';
 import OTPInput from '../../components/auth/OTPInput';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:5000';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com';
 export default function VerifyOTP() {
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const [errorMsg, setErrorMsg] = useState('');

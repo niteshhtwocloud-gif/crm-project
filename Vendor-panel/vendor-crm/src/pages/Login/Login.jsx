@@ -4,7 +4,7 @@ import { LuEye, LuEyeOff } from 'react-icons/lu';
 import logo from "../../components/Sidebar/logo.png";
 import './Login.css';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:5000';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com';
 
 
 export default function Login({ onLogin }) {

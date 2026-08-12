@@ -19,7 +19,7 @@ import { ToastProvider } from "./context/ToastContext";
 import { CRMProvider } from "./context/CRMContext";
 import "./App.css";
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:5000';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com';
 
 function App() {
   const [isAuthed, setIsAuthed] = useState(

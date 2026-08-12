@@ -3,7 +3,7 @@ import { LuSearch, LuRefreshCw } from "react-icons/lu";
 import { useCRM } from "../../context/CRMContext";
 import { useToast } from "../../context/ToastContext";
 
-const API_BASE = (import.meta.env.VITE_API_BASE || 'http://127.0.0.1:5000') + '/api';
+const API_BASE = (import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com') + '/api';
 const getHeaders = () => ({
   "Content-Type": "application/json",
   "Authorization": `Bearer ${localStorage.getItem("token")}`
