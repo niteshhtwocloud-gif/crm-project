@@ -54,7 +54,10 @@ export default function VerifyOTP() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
       });
-      const data = await response.json();
+      const contentType1 = response.headers.get("content-type") || "";
+      const data = contentType1.includes("application/json")
+        ? await response.json()
+        : { message: (await response.text()) || `Server returned ${response.status}` };
       if (!response.ok) {
         setErrorMsg(data.message || "Failed to resend OTP");
       } else {
@@ -88,7 +91,10 @@ export default function VerifyOTP() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp: otpValue })
       });
-      const data = await response.json();
+      const contentType2 = response.headers.get("content-type") || "";
+      const data = contentType2.includes("application/json")
+        ? await response.json()
+        : { message: (await response.text()) || `Server returned ${response.status}` };
       if (!response.ok) {
         setErrorMsg(data.message || "Invalid OTP");
       } else {

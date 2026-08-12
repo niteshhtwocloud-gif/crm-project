@@ -51,7 +51,10 @@ export default function ForgotPassword() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email })
       });
-      const data = await response.json();
+      const contentType = response.headers.get("content-type") || "";
+      const data = contentType.includes("application/json")
+        ? await response.json()
+        : { message: (await response.text()) || `Server returned ${response.status}` };
       if (!response.ok) {
         setErrorMsg(data.message || "Failed to send OTP");
       } else {

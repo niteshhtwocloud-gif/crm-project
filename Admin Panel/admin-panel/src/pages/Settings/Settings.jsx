@@ -9,7 +9,7 @@ import '../PagesCommon.css';
 export default function Settings() {
   const { settings, updateSettings, logAction } = useData();
   const { auth, updateAuth } = useAuth();
-  const API_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:5000';
+  const API_BASE = import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com';
   const location = useLocation();
 
   // Handle active tab state

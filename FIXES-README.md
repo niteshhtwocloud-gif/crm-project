@@ -86,7 +86,7 @@ NEW status badge: "Paid" / "Pending" / "Overdue"
 
 **`DataContext.jsx`**
 
-- `API_BASE` constant — 20+ hardcoded `http://127.0.0.1:5000` hataye. Deploy ke liye `.env` me `VITE_API_BASE` set karo.
+- `API_BASE` constant — 20+ hardcoded `http://https://crm-backend-4fh2.onrender.com` hataye. Deploy ke liye `.env` me `VITE_API_BASE` set karo.
 - `normalizeInvoice` / `normalizeService` / `normalizeVendor` — ek hi jagah. Initial fetch aur 8-second polling dono yahi use karte hain, to dono kabhi drift nahi karenge (pehle do jagah duplicate logic thi).
 - `statusKey` mapping — `status` human-readable rehta hai, CSS class `statusKey` se banti hai.
 - `num()` coercion — `₹ NaN` khatam. Verify kiya: `any NaN? false`

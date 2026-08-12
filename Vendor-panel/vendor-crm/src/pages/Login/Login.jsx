@@ -97,7 +97,19 @@ export default function Login({ onLogin }) {
         body: JSON.stringify(payload)
       });
 
-      const data = await response.json();
+      // Safely read response — prevent "Unexpected token '<'" crash
+      // when the server returns HTML instead of JSON.
+      const contentType = response.headers.get("content-type") || "";
+      let data = {};
+
+      if (contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        data = {
+          message: text || `Server returned ${response.status} ${response.statusText}`
+        };
+      }
 
       if (!response.ok) {
         throw new Error(data.message || "Authentication failed.");

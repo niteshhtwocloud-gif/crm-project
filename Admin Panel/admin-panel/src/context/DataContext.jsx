@@ -6,7 +6,7 @@ import { isCustomerExpired, getEffectiveStatus } from '../utils/dateUtils';
 const DataContext = createContext(null);
 
 // Single source of truth for the API host. Set VITE_API_BASE in .env to deploy.
-export const API_BASE = import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com/';
+export const API_BASE = import.meta.env.VITE_API_BASE || 'https://crm-backend-4fh2.onrender.com';
 
 // Safe number coercion - stops "₹ NaN" appearing on the dashboard when a
 // record is missing amount / paid / pending.

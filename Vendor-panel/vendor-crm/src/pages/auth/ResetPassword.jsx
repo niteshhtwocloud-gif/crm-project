@@ -66,7 +66,10 @@ export default function ResetPassword() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, newPassword: password })
       });
-      const data = await response.json();
+      const contentType = response.headers.get("content-type") || "";
+      const data = contentType.includes("application/json")
+        ? await response.json()
+        : { message: (await response.text()) || `Server returned ${response.status}` };
       if (!response.ok) {
         setErrorMsg(data.message || "Failed to reset password");
       } else {
