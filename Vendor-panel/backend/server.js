@@ -13,17 +13,13 @@ const PORT = process.env.PORT || 5000;
 // ======================================================
 
 const allowedOrigins = [
-  // Local development
   'http://localhost:5173',
   'http://localhost:5174',
-
-  // Vercel production
+  'http://127.0.0.1:5173',
+  'http://127.0.0.1:5174',
+  'https://crm-project-7wvy.vercel.app',
   'https://crm-project-smoky-delta.vercel.app',
-
-  // Vercel alternate deployment
   'https://crm-project-7wvy-pv5fl4iar-ht-wo.vercel.app',
-
-  // Current Vercel deployment / preview
   'https://crm-project-7wvy-h8f4xen5t-ht-wo.vercel.app'
 ];
 
