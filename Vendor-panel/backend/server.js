@@ -31,7 +31,7 @@ app.use(
   cors({
     origin: function (origin, callback) {
       // Allow requests without Origin
-      // e.g. Postman, server-to-server requests
+      // Example: Postman, server-to-server requests
       if (!origin) {
         return callback(null, true);
       }
@@ -79,7 +79,7 @@ app.get('/', (req, res) => {
 // API ROUTES
 // ======================================================
 
-// AUTH ROUTE - IMPORTANT
+// AUTH ROUTE
 app.use('/api/auth', require('./routes/auth'));
 
 app.use('/api/users', require('./routes/users'));
