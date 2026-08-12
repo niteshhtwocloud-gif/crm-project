@@ -1,0 +1,99 @@
+.table-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px;
+}
+
+.table-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.table-card-header h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.view-all-btn {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.view-all-btn:hover {
+  background: var(--main-bg);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+thead th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-secondary);
+  font-weight: 700;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody td {
+  padding: 13px 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid #f1f4f9;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+  background: var(--main-bg);
+}
+
+.cell-strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.days-left {
+  font-weight: 700;
+}
+
+.days-danger {
+  color: var(--danger);
+}
+
+.days-warning {
+  color: var(--warning);
+}
+
+.days-info {
+  color: var(--primary);
+}
+
+.days-success {
+  color: var(--success);
+}

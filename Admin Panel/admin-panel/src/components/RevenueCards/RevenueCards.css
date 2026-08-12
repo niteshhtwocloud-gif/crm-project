@@ -1,0 +1,58 @@
+.revenue-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 16px 20px;
+  transition: box-shadow 0.25s ease;
+  align-self: start;
+  height: fit-content;
+}
+
+.revenue-card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.revenue-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.revenue-title {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.revenue-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.revenue-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.revenue-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.revenue-link:hover {
+  text-decoration: underline;
+}

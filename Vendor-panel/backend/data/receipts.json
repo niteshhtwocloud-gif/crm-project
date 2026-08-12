@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "invoiceNo": "INV-2025-1587",
+    "customer": "ABC Pvt Ltd",
+    "date": "2026-05-18",
+    "amount": 8500,
+    "method": "UPI"
+  },
+  {
+    "id": 2,
+    "invoiceNo": "INV-2025-1586",
+    "customer": "XYZ Traders",
+    "date": "2026-05-18",
+    "amount": 7500,
+    "method": "Bank Transfer"
+  },
+  {
+    "id": 3,
+    "invoiceNo": "INV-2025-1584",
+    "customer": "Kumar & Co.",
+    "date": "2026-05-17",
+    "amount": 10500,
+    "method": "Credit Card"
+  }
+]

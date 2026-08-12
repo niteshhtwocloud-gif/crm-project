@@ -1,0 +1,44 @@
+.small-card {
+  height: 100%;
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.mini-table {
+  min-width: 0;
+  width: 100%;
+}
+
+.mini-table thead th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mini-table tbody td {
+  padding: 11px 6px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.mini-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.text-success { color: var(--success); font-weight: 600; }
+.text-warning { color: var(--warning); font-weight: 600; }
+.text-danger { color: var(--danger); font-weight: 600; }

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "customer": "ABC Pvt Ltd",
+    "subject": "Tally Cloud login issue",
+    "category": "service",
+    "priority": "High",
+    "status": "Open",
+    "date": "2026-05-24",
+    "message": "User cannot login to Tally cloud instance."
+  },
+  {
+    "id": 2,
+    "customer": "XYZ Traders",
+    "subject": "VPS RAM upgrade request",
+    "category": "service",
+    "priority": "Medium",
+    "status": "In Progress",
+    "date": "2026-05-23",
+    "message": "Need to upgrade RAM from 8GB to 16GB."
+  },
+  {
+    "id": 3,
+    "customer": "Shree Enterprises",
+    "subject": "Billing query regarding INV-2025-1583",
+    "category": "billing",
+    "priority": "Low",
+    "status": "Closed",
+    "date": "2026-05-20",
+    "message": "Why is the due amount showing full on invoice?"
+  }
+]

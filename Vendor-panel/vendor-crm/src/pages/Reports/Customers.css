@@ -1,0 +1,187 @@
+/* Customers.css - Sleek CRM Customer Styling */
+
+.customers-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.customers-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.customers-count {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.customers-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stacked-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cell-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Badges for roles and status */
+.badge-admin {
+  background: rgba(79, 107, 255, 0.1);
+  color: #4f6bff;
+}
+
+.badge-vendor {
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+}
+
+.status-active {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.status-inactive {
+  background: rgba(148, 163, 184, 0.1);
+  color: #64748b;
+}
+
+.status-suspended {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.status-expired {
+  background: rgba(249, 115, 22, 0.1);
+  color: #f97316;
+}
+
+.badge-muted {
+  background: rgba(226, 232, 240, 0.5);
+  color: #94a3b8;
+}
+
+/* Actions & Icons */
+.icon-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.icon-action:hover {
+  transform: translateY(-1px);
+}
+
+.icon-action.view:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+.icon-action.edit:hover {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.icon-action.delete:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* Modal details layout */
+.modal-card-wide {
+  max-width: 800px !important;
+  width: 90%;
+}
+
+.modal-body-scroll {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 24px !important;
+}
+
+.cust-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--primary-blue, #4f6bff);
+  margin: 20px 0 12px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.cust-section-title:first-of-type {
+  margin-top: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.cust-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.cust-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.cust-detail-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.cust-detail-value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e293b;
+  word-break: break-all;
+}

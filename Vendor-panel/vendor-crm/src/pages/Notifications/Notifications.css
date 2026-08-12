@@ -1,0 +1,148 @@
+.table-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 22px;
+}
+
+.notif-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.notif-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.notif-tab {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: #F5F7FB;
+  transition: all 0.2s ease;
+}
+
+.notif-tab:hover {
+  background: #EEF2FF;
+  color: var(--primary-blue);
+}
+
+.notif-tab.active {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.mark-read-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 9px;
+  background: #EEF2FF;
+  color: var(--primary-blue);
+  font-size: 12.5px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.mark-read-btn:hover:not(:disabled) {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.mark-read-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.full-notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.full-notif-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 10px;
+  border-radius: 12px;
+  transition: background 0.15s ease;
+}
+
+.full-notif-row:hover {
+  background: #FAFBFF;
+}
+
+.full-notif-row.unread {
+  background: #F8FAFF;
+}
+
+.notif-row-icon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notif-row-body {
+  flex: 1;
+}
+
+.notif-row-text {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.notif-row-meta {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.mark-btn {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  padding: 6px 12px;
+  border-radius: 7px;
+  background: #EEF2FF;
+  white-space: nowrap;
+}
+
+.mark-btn:hover {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.read-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 50px 0;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+}

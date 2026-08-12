@@ -1,0 +1,76 @@
+.settings-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.settings-tab-btn {
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s ease;
+}
+
+.settings-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.settings-tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.profile-avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-avatar-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.avatar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.avatar-actions button {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.avatar-upload-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.avatar-upload-btn:hover {
+  background: var(--primary-dark);
+}
+
+.avatar-delete-btn {
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.avatar-delete-btn:hover {
+  background: #f1f5f9;
+  color: var(--danger);
+}

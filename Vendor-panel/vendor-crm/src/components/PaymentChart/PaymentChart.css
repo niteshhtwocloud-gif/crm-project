@@ -1,0 +1,41 @@
+.payment-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.donut-wrap {
+  margin-top: 4px;
+}
+
+.donut-legend {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.donut-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-name {
+  color: var(--text-primary);
+  font-weight: 500;
+  flex: 1;
+}
+
+.legend-value {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 12.5px;
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "user": "Admin",
+    "action": "Logged in successfully",
+    "timestamp": "2026-07-25 17:30:12"
+  },
+  {
+    "id": 2,
+    "user": "Admin",
+    "action": "Viewed dashboard settings",
+    "timestamp": "2026-07-25 17:12:45"
+  },
+  {
+    "id": 3,
+    "user": "System",
+    "action": "Daily database backup scheduled",
+    "timestamp": "2026-07-25 04:00:00"
+  }
+]

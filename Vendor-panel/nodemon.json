@@ -1,0 +1,22 @@
+{
+  "watch": [
+    "backend"
+  ],
+  "ext": "js,json",
+  "ignore": [
+    "vendor-crm",
+    "vendor-crm/**",
+    "vendor-crm/dist",
+    "vendor-crm/dist/**",
+    "vendor-crm/node_modules",
+    "vendor-crm/node_modules/**",
+    "node_modules",
+    "node_modules/**",
+    "dist",
+    "dist/**",
+    "build",
+    "build/**",
+    "*.log"
+  ],
+  "delay": "1000"
+}

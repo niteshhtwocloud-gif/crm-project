@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1785391538353,
+    "unread": true,
+    "type": "info",
+    "category": "System Messages",
+    "text": "Customer profile updated for undefined",
+    "time": "Jul 30, 2026, 11:35 AM"
+  },
+  {
+    "id": 1785391538352,
+    "unread": true,
+    "type": "info",
+    "category": "Payment Alerts",
+    "text": "Invoice INV-2025-7160 generated for Rahul Sharma",
+    "time": "Jul 30, 2026, 11:35 AM"
+  },
+  {
+    "id": 1785391538349,
+    "unread": true,
+    "type": "success",
+    "category": "System Messages",
+    "text": "Server Node \"Starter Cloud VPS\" provisioned successfully for Customer Rahul Sharma",
+    "time": "Jul 30, 2026, 11:35 AM"
+  },
+  {
+    "id": 1785391538315,
+    "type": "info",
+    "category": "System Messages",
+    "text": "Customer profile updated for Rahul Sharma (Vendor: CloudBase)",
+    "time": "30/7/2026, 11:35:38 am",
+    "unread": true
+  },
+  {
+    "id": 1785388486538,
+    "unread": false,
+    "type": "success",
+    "category": "System Messages",
+    "text": "New service added: Tally",
+    "time": "Jul 30, 2026, 10:44 AM"
+  },
+  {
+    "id": 1,
+    "type": "warning",
+    "category": "Expiry Alerts",
+    "text": "12 services are expiring in 7 days",
+    "time": "10 May 2025, 10:30 AM",
+    "unread": false
+  },
+  {
+    "id": 2,
+    "type": "info",
+    "category": "Payment Alerts",
+    "text": "Payment received from Rahul Sharma",
+    "time": "10 May 2025, 09:15 AM",
+    "unread": false
+  },
+  {
+    "id": 3,
+    "type": "user",
+    "category": "System Messages",
+    "text": "New user registered - Priya Verma",
+    "time": "09 May 2025, 06:20 PM",
+    "unread": false
+  },
+  {
+    "id": 4,
+    "type": "success",
+    "category": "System Messages",
+    "text": "Server backup completed successfully",
+    "time": "09 May 2025, 03:45 PM",
+    "unread": false
+  },
+  {
+    "id": 5,
+    "type": "warning",
+    "category": "Renewal Alerts",
+    "text": "Dedicated Server renewal due in 3 days",
+    "time": "08 May 2025, 11:05 AM",
+    "unread": false
+  },
+  {
+    "id": 6,
+    "type": "info",
+    "category": "Payment Alerts",
+    "text": "Invoice INV-2025-1576 is overdue",
+    "time": "08 May 2025, 08:40 AM",
+    "unread": false
+  },
+  {
+    "id": 7,
+    "type": "warning",
+    "category": "Expiry Alerts",
+    "text": "SSL Certificate expired for 2 domains",
+    "time": "07 May 2025, 04:12 PM",
+    "unread": false
+  },
+  {
+    "id": 8,
+    "type": "user",
+    "category": "System Messages",
+    "text": "New user registered - Vikash Gupta",
+    "time": "06 May 2025, 01:30 PM",
+    "unread": false
+  }
+]

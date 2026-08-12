@@ -1,0 +1,122 @@
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.table-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 22px;
+}
+
+.settings-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-card-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo-upload-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.logo-preview {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 9px;
+  background: #EEF2FF;
+  color: var(--primary-blue);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.upload-btn:hover {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.field-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: var(--text-primary);
+  background: #F9FAFC;
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.field-input:focus {
+  border-color: var(--primary-blue);
+  background: #fff;
+}
+
+select.field-input {
+  cursor: pointer;
+}
+
+.save-btn {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 0;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: #fff;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.save-btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 1200px) {
+  .settings-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 760px) {
+  .settings-grid { grid-template-columns: 1fr; }
+}

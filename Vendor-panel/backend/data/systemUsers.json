@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Admin",
+    "email": "admin@h2cloud.com",
+    "role": "Super Admin",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "name": "Server Basket",
+    "email": "vendor@serverbasket.com",
+    "role": "Vendor Partner",
+    "status": "Active"
+  },
+  {
+    "id": 3,
+    "name": "Hostinger",
+    "email": "vendor@hostinger.com",
+    "role": "Vendor Partner",
+    "status": "Active"
+  }
+]

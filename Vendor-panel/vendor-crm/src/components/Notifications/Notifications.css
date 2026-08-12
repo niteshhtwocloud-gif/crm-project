@@ -1,0 +1,40 @@
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.notif-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.notif-row-icon {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notif-row-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.notif-row-time {
+  font-size: 11px;
+  color: var(--text-secondary);
+}

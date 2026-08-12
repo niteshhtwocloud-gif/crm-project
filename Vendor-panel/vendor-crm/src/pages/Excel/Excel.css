@@ -1,0 +1,124 @@
+.excel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.table-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 22px;
+}
+
+.excel-action-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.excel-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+.excel-icon.import { background: #4F6BFF; }
+.excel-icon.template { background: #22C55E; }
+.excel-icon.export-users { background: #A855F7; }
+.excel-icon.export-reports { background: #F59E0B; }
+
+.excel-desc {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 6px 0 16px;
+  flex: 1;
+}
+
+.excel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-radius: 10px;
+  background: #EEF2FF;
+  color: var(--primary-blue);
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.excel-btn:hover {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 20px;
+  background: #EEF2FF;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+  border-radius: 20px;
+  transition: width 0.15s ease;
+}
+
+.progress-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  min-width: 34px;
+}
+
+.preview-card .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  margin-top: 12px;
+}
+
+.preview-card .data-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.preview-card .data-table td {
+  padding: 10px;
+  font-size: 12.5px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+@media (max-width: 1300px) {
+  .excel-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .excel-grid { grid-template-columns: 1fr; }
+}

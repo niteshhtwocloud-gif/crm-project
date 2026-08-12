@@ -1,0 +1,256 @@
+.excel-page-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.excel-upload-card h3,
+.export-actions-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.upload-subtitle,
+.export-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.drag-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(79, 107, 255, 0.25);
+  background: rgba(79, 107, 255, 0.01);
+  border-radius: 12px;
+  padding: 32px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-bottom: 16px;
+}
+
+.drag-drop-zone:hover,
+.drag-drop-zone.drag-active {
+  border-color: var(--primary);
+  background: rgba(79, 107, 255, 0.04);
+}
+
+.upload-icon-arrow {
+  color: var(--primary);
+  margin-bottom: 12px;
+  transition: transform 0.25s ease;
+}
+
+.drag-drop-zone:hover .upload-icon-arrow {
+  transform: translateY(-4px);
+}
+
+.drag-text {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.drag-hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.upload-progress-wrapper {
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.progress-bar-container {
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.commit-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
+.template-download-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafbfe;
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  border-radius: 12px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.template-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.template-info svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.template-info h4 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.template-info p {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+.template-btn-download {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid rgba(79, 107, 255, 0.2);
+  color: var(--primary);
+  transition: all 0.2s ease;
+}
+
+.template-btn-download:hover {
+  background: rgba(79, 107, 255, 0.05);
+}
+
+.export-buttons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.export-grid-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.export-grid-btn:hover {
+  border-color: rgba(79, 107, 255, 0.3);
+  background: rgba(79, 107, 255, 0.02);
+}
+
+.export-grid-btn svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.export-grid-btn h4 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.export-grid-btn p {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.spreadsheet-preview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fade-in-up 0.4s ease;
+}
+
+.preview-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.preview-header-row h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.preview-header-row p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.btn-commit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--success);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(34, 197, 94, 0.15);
+  transition: all 0.2s ease;
+}
+
+.btn-commit:hover {
+  opacity: 0.95;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .excel-page-layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "vendor-panel-root",
+  "version": "1.0.0",
+  "description": "Root runner for Vendor Panel CRM",
+  "main": "backend/server.js",
+  "scripts": {
+    "server": "nodemon --config nodemon.json backend/server.js",
+    "client": "npm run dev --prefix vendor-crm",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "purge:demo": "node backend/purge-demo-data.js",
+    "purge:demo:dry": "node backend/purge-demo-data.js --dry-run",
+    "reset:db": "node backend/reset_db.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.9.1",
+    "nodemailer": "^9.0.4",
+    "playwright": "^1.62.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
+}

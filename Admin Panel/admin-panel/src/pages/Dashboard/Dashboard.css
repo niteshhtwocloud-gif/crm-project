@@ -1,0 +1,80 @@
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Row 2: Finance Overview */
+.dashboard-row-finance {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.dashboard-finance-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.revenue-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.payment-chart-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.payment-chart-column > div {
+  height: 100%;
+}
+
+/* Row 3: Renewals Overview */
+.dashboard-row-renewals {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Row 4: Billing & Payments */
+.dashboard-row-payments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Row 5: Vendor Overview */
+.dashboard-row-full {
+  display: block;
+  width: 100%;
+}
+
+/* Responsiveness adjustments */
+@media (max-width: 1400px) {
+  .dashboard-row-finance {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-row-renewals {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  .dashboard-row-payments {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .revenue-cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

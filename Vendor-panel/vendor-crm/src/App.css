@@ -1,0 +1,36 @@
+.app-layout {
+  display: block;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.app-layout.collapsed .main-content {
+  margin-left: 84px;
+}
+
+.page-body {
+  padding: 24px 28px 40px;
+  flex: 1;
+}
+
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 17, 34, 0.5);
+  z-index: 90;
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
+  }
+}

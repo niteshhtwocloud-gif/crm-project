@@ -1,0 +1,116 @@
+.renewal-calendar-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 20px;
+}
+
+.h2-calendar {
+  width: 100%;
+  border: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.h2-calendar .react-calendar__navigation {
+  margin-bottom: 8px;
+}
+
+.h2-calendar .react-calendar__navigation button {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 8px;
+  min-width: 32px;
+}
+
+.h2-calendar .react-calendar__navigation button:hover {
+  background: var(--main-bg);
+}
+
+.h2-calendar .react-calendar__month-view__weekdays {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.h2-calendar .react-calendar__month-view__weekdays abbr {
+  text-decoration: none;
+}
+
+.h2-calendar .react-calendar__tile {
+  position: relative;
+  padding: 8px 4px 12px;
+  font-size: 12px;
+  border-radius: 8px;
+  color: var(--text-primary);
+}
+
+.h2-calendar .react-calendar__tile:enabled:hover {
+  background: var(--main-bg);
+}
+
+.h2-calendar .react-calendar__tile--now {
+  background: rgba(79, 107, 255, 0.1);
+  font-weight: 700;
+}
+
+.h2-calendar .react-calendar__tile--active {
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark)) !important;
+  color: #fff !important;
+}
+
+.h2-calendar .selected-tile {
+  box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+.h2-calendar .react-calendar__month-view__days__day--neighboringMonth {
+  color: #cbd5e1;
+}
+
+.event-dot {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.calendar-legend {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calendar-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.calendar-legend .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.view-calendar-link {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  width: 100%;
+  text-align: right;
+}
+
+.view-calendar-link:hover {
+  text-decoration: underline;
+}

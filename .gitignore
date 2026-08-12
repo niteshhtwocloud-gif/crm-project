@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# secrets - NEVER commit these
+.env
+**/.env
+!**/.env.example
+
+# build output
+dist/
+build/
+
+# logs
+*.log
+npm-debug.log*
+
+# os
+.DS_Store
+Thumbs.db

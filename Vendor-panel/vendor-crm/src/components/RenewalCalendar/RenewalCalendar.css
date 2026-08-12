@@ -1,0 +1,118 @@
+.renewal-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.month-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.month-nav button {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  background: #F5F7FB;
+}
+
+.month-nav button:hover {
+  background: #EEF2FF;
+  color: var(--primary-blue);
+}
+
+/* react-calendar overrides */
+.renewal-calendar.react-calendar {
+  width: 100%;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+}
+
+.renewal-calendar .react-calendar__navigation {
+  display: none;
+}
+
+.renewal-calendar .react-calendar__month-view__weekdays {
+  text-align: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+}
+
+.renewal-calendar .react-calendar__month-view__weekdays__weekday {
+  padding: 6px 0;
+}
+
+.renewal-calendar .react-calendar__month-view__weekdays abbr {
+  text-decoration: none;
+}
+
+.renewal-calendar .react-calendar__tile {
+  position: relative;
+  padding: 8px 0 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: none;
+  border-radius: 8px;
+}
+
+.renewal-calendar .react-calendar__tile:enabled:hover {
+  background: #EEF2FF;
+}
+
+.renewal-calendar .react-calendar__tile--now {
+  background: #EEF2FF;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.renewal-calendar .react-calendar__month-view__days__day--neighboringMonth {
+  color: #CBD5E1;
+}
+
+.tile-dot {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.renewal-legend {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.renewal-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.view-calendar-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
