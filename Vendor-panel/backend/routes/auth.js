@@ -249,16 +249,6 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
-const shared = require('nodemailer/lib/shared');
-const os = require('os');
-const originalInterfaces = os.networkInterfaces();
-const ipv4OnlyInterfaces = {};
-Object.keys(originalInterfaces).forEach(key => {
-  ipv4OnlyInterfaces[key] = originalInterfaces[key].filter(i => i.family === 'IPv4' || i.family === 4);
-});
-shared.networkInterfaces = ipv4OnlyInterfaces;
-
-const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
 // Helpers for OTP
@@ -266,33 +256,78 @@ const generateOTP = () => {
   return crypto.randomInt(100000, 999999).toString();
 };
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('Nodemailer verification error:', error);
-  } else {
-    console.log('Nodemailer is ready to send messages');
-  }
-});
-
 const sendOTPEmail = async (email, otp) => {
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: email,
-    subject: 'Password Reset OTP',
-    text: `Hello,\n\nYour OTP for password reset is:\n\n${otp}\n\nThis OTP is valid for 5 minutes.\n\nIf you didn't request this, ignore this email.`
-  };
+  const apiKey = process.env.EMAIL_API_KEY || process.env.RESEND_API_KEY || process.env.BREVO_API_KEY || process.env.SENDGRID_API_KEY;
+  const fromEmail = process.env.EMAIL_USER || 'onboarding@resend.dev';
+  const subject = 'Password Reset OTP';
+  const text = `Hello,\n\nYour OTP for password reset is:\n\n${otp}\n\nThis OTP is valid for 5 minutes.\n\nIf you didn't request this, ignore this email.`;
 
-  await transporter.sendMail(mailOptions);
+  if (!apiKey) {
+    console.error('Email sending failed: No email API key configured in environment variables.');
+    throw new Error('Email service configuration error. Please configure EMAIL_API_KEY.');
+  }
+
+  let provider = 'resend';
+  if (process.env.BREVO_API_KEY || (apiKey && apiKey.startsWith('xkeysib-'))) {
+    provider = 'brevo';
+  } else if (process.env.SENDGRID_API_KEY || (apiKey && apiKey.startsWith('SG.'))) {
+    provider = 'sendgrid';
+  }
+
+  let url, headers, body;
+
+  if (provider === 'resend') {
+    url = 'https://api.resend.com/emails';
+    headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    };
+    body = JSON.stringify({
+      from: fromEmail,
+      to: email,
+      subject: subject,
+      text: text
+    });
+  } else if (provider === 'brevo') {
+    url = 'https://api.brevo.com/v3/smtp/email';
+    headers = {
+      'Content-Type': 'application/json',
+      'api-key': apiKey
+    };
+    body = JSON.stringify({
+      sender: { email: fromEmail },
+      to: [{ email: email }],
+      subject: subject,
+      textContent: text
+    });
+  } else if (provider === 'sendgrid') {
+    url = 'https://api.sendgrid.com/v3/mail/send';
+    headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    };
+    body = JSON.stringify({
+      personalizations: [{ to: [{ email: email }] }],
+      from: { email: fromEmail },
+      subject: subject,
+      content: [{ type: 'text/plain', value: text }]
+    });
+  }
+
+  console.log(`Sending OTP email via ${provider} HTTPS API...`);
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: headers,
+    body: body
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`Email API error response from ${provider}:`, errorText);
+    throw new Error(`Email delivery failed via ${provider}: Status ${response.status}`);
+  }
+
+  console.log(`Email successfully sent via ${provider} HTTPS API.`);
 };
 
 // @route   GET /api/auth/forgot-password
