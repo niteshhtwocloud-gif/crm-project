@@ -265,7 +265,10 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-  family: 4
+  dnsResolver: {
+    resolve4: (hostname, cb) => require('dns').resolve4(hostname, cb),
+    resolve6: (hostname, cb) => cb(null, [])
+  }
 });
 
 transporter.verify((error, success) => {
