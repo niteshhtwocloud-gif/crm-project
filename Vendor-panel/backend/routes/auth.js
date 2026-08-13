@@ -249,6 +249,15 @@ router.get('/me', auth, async (req, res) => {
   }
 });
 
+const shared = require('nodemailer/lib/shared');
+const os = require('os');
+const originalInterfaces = os.networkInterfaces();
+const ipv4OnlyInterfaces = {};
+Object.keys(originalInterfaces).forEach(key => {
+  ipv4OnlyInterfaces[key] = originalInterfaces[key].filter(i => i.family === 'IPv4' || i.family === 4);
+});
+shared.networkInterfaces = ipv4OnlyInterfaces;
+
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 
@@ -264,10 +273,6 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
-  },
-  dnsResolver: {
-    resolve4: (hostname, cb) => require('dns').resolve4(hostname, cb),
-    resolve6: (hostname, cb) => cb(null, [])
   }
 });
 
