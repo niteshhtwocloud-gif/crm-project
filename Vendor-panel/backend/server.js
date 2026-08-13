@@ -23,7 +23,8 @@ const allowedOrigins = [
   'https://crm-project-7wvy-h8f4xen5t-ht-wo.vercel.app',
   'https://crm-project-ht-wo.vercel.app',
   'https://crm-project-7wvy-ht-wo.vercel.app',
-  'https://crm-project-git-main-ht-wo.vercel.app'
+  'https://crm-project-git-main-ht-wo.vercel.app',
+  'https://crm-project-7wy.vercel.app'
 ];
 
 app.use(
