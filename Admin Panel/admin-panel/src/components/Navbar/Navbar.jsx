@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Calendar from 'react-calendar';
 import { useData } from '../../context/DataContext';
 import { useAuth } from '../../context/AuthContext';
+import logo from '../Sidebar/logo.png';
 import 'react-calendar/dist/Calendar.css';
 import './Navbar.css';
 
@@ -160,9 +161,10 @@ export default function Navbar({ onToggleSidebar, pageTitle, pageSubtitle }) {
               }}
             >
               <img
-                src={auth?.avatar || "https://i.pravatar.cc/64?img=13"}
+                src={logo}
                 alt={`${displayName} avatar`}
                 className="profile-avatar"
+                style={{ objectFit: 'contain', background: '#fff' }}
               />
               <div className="profile-info">
                 <span className="profile-name">{displayName}</span>

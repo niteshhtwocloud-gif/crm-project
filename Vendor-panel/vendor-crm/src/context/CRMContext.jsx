@@ -16,7 +16,7 @@ export function CRMProvider({ children }) {
   const [payments, setPayments] = useState([]);
   const [notifications, setNotifications] = useState([]);
   const [backups, setBackups] = useState([]);
-  
+
   const [currentUser, setCurrentUser] = useState(() => {
     try {
       const stored = localStorage.getItem("adminUser");
@@ -400,11 +400,11 @@ export function CRMProvider({ children }) {
       const data = await response.json();
       if (!response.ok) throw new Error(data.message);
       setBackups(prev => [data, ...prev]);
-      
+
       // Refresh notifications list to show completed notification
       const notifRes = await fetch(`${API_BASE}/notifications`, { headers: getHeaders() });
       if (notifRes.ok) setNotifications(await notifRes.json());
-      
+
       return data;
     } catch (error) {
       console.error("Failed to trigger database backup", error);
@@ -426,7 +426,7 @@ export function CRMProvider({ children }) {
       if (data.services) setServices(data.services);
       if (data.payments) setPayments(data.payments);
       if (data.companySettings) setCompanySettingsState(data.companySettings);
-      
+
       const notifRes = await fetch(`${API_BASE}/notifications`, { headers: getHeaders() });
       if (notifRes.ok) setNotifications(await notifRes.json());
     } catch (error) {

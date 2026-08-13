@@ -241,7 +241,7 @@ router.get('/me', auth, async (req, res) => {
         freshUser.avatar = found.avatar || null;
       }
     }
-    
+
     res.json({ user: freshUser });
   } catch (err) {
     console.error("Failed to fetch fresh user data in /me:", err);
@@ -257,77 +257,33 @@ const generateOTP = () => {
 };
 
 const sendOTPEmail = async (email, otp) => {
-  const apiKey = process.env.EMAIL_API_KEY || process.env.RESEND_API_KEY || process.env.BREVO_API_KEY || process.env.SENDGRID_API_KEY;
-  const fromEmail = process.env.EMAIL_USER || 'onboarding@resend.dev';
-  const subject = 'Password Reset OTP';
-  const text = `Hello,\n\nYour OTP for password reset is:\n\n${otp}\n\nThis OTP is valid for 5 minutes.\n\nIf you didn't request this, ignore this email.`;
+  const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {
-    console.error('Email sending failed: No email API key configured in environment variables.');
-    throw new Error('Email service configuration error. Please configure EMAIL_API_KEY.');
+    throw new Error('RESEND_API_KEY is not configured');
   }
 
-  let provider = 'resend';
-  if (process.env.BREVO_API_KEY || (apiKey && apiKey.startsWith('xkeysib-'))) {
-    provider = 'brevo';
-  } else if (process.env.SENDGRID_API_KEY || (apiKey && apiKey.startsWith('SG.'))) {
-    provider = 'sendgrid';
-  }
-
-  let url, headers, body;
-
-  if (provider === 'resend') {
-    url = 'https://api.resend.com/emails';
-    headers = {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`
-    };
-    body = JSON.stringify({
-      from: fromEmail,
-      to: email,
-      subject: subject,
-      text: text
-    });
-  } else if (provider === 'brevo') {
-    url = 'https://api.brevo.com/v3/smtp/email';
-    headers = {
-      'Content-Type': 'application/json',
-      'api-key': apiKey
-    };
-    body = JSON.stringify({
-      sender: { email: fromEmail },
-      to: [{ email: email }],
-      subject: subject,
-      textContent: text
-    });
-  } else if (provider === 'sendgrid') {
-    url = 'https://api.sendgrid.com/v3/mail/send';
-    headers = {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`
-    };
-    body = JSON.stringify({
-      personalizations: [{ to: [{ email: email }] }],
-      from: { email: fromEmail },
-      subject: subject,
-      content: [{ type: 'text/plain', value: text }]
-    });
-  }
-
-  console.log(`Sending OTP email via ${provider} HTTPS API...`);
-  const response = await fetch(url, {
+  const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: headers,
-    body: body
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      from: 'onboarding@resend.dev',
+      to: email,
+      subject: 'Password Reset OTP',
+      text: `Hello,\n\nYour OTP for password reset is:\n\n${otp}\n\nThis OTP is valid for 5 minutes.\n\nIf you didn't request this, ignore this email.`
+    })
   });
 
   if (!response.ok) {
     const errorText = await response.text();
-    console.error(`Email API error response from ${provider}:`, errorText);
-    throw new Error(`Email delivery failed via ${provider}: Status ${response.status}`);
+    console.error('Resend API error:', errorText);
+    throw new Error(`Email delivery failed: ${response.status}`);
   }
 
-  console.log(`Email successfully sent via ${provider} HTTPS API.`);
+  console.log('OTP email sent successfully via Resend API');
 };
 
 // @route   GET /api/auth/forgot-password

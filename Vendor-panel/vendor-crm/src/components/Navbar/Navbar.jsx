@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { LuMenu, LuSearch, LuCalendar, LuBell, LuChevronDown, LuUser, LuSettings, LuLogOut } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { useCRM } from "../../context/CRMContext";
+import logo from "../Sidebar/logo.png";
 import "./Navbar.css";
 
 export default function Navbar({ onToggleSidebar, title, subtitle, onLogout }) {
@@ -31,7 +32,7 @@ export default function Navbar({ onToggleSidebar, title, subtitle, onLogout }) {
                       activeUser?.role === "vendor" ? "Vendor Admin" : 
                       activeUser?.role === "sub_vendor" ? "Vendor User" :
                       activeUser?.role === "Customer" ? "Customer" : "Vendor User";
-  const avatarSrc = activeUser?.avatar || "https://i.pravatar.cc/64?img=13";
+  const avatarSrc = logo;
 
   const unreadCount = notifications.filter((n) => n.unread).length;
 
@@ -127,8 +128,9 @@ export default function Navbar({ onToggleSidebar, title, subtitle, onLogout }) {
             <button className="profile-btn" onClick={() => setShowProfile((s) => !s)}>
               <img
                 src={avatarSrc}
-                alt={displayName}
+                alt="H Two Cloud Solutions"
                 className="profile-avatar"
+                style={{ objectFit: "contain", background: "#fff" }}
               />
               <div className="profile-info">
                 <span className="profile-name" style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "130px" }} title={displayName}>
