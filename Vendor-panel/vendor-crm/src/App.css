@@ -30,6 +30,9 @@
 }
 
 @media (max-width: 1024px) {
+  .app-layout {
+    overflow-x: hidden;
+  }
   .main-content {
     margin-left: 0;
     min-width: 0;

@@ -41,3 +41,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .dashboard-row-2 > *, .dashboard-row-3 > *, .dashboard-row-4 > * {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}

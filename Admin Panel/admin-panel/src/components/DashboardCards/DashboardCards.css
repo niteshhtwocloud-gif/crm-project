@@ -81,8 +81,4 @@
   }
 }
 
-@media (max-width: 560px) {
-  .stat-cards-row {
-    grid-template-columns: 1fr;
-  }
-}
+
