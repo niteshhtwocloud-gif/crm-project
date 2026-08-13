@@ -40,7 +40,8 @@ app.use(
       }
 
       console.warn(`CORS blocked origin: ${origin}`);
-      return callback(new Error('Not allowed by CORS'));
+      // Return false to deny Access-Control-Allow-Origin header instead of throwing a server-side 500 error
+      return callback(null, false);
     },
 
     credentials: true
