@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import Navbar from '../Navbar/Navbar';
@@ -26,6 +26,7 @@ const titleMap = {
 
 export default function Layout() {
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [toast, setToast] = useState(null);
   const location = useLocation();
   const { auth } = useAuth();
@@ -34,15 +35,25 @@ export default function Layout() {
   const subtitle =
     location.pathname === '/' && auth?.name ? `Welcome back, ${auth.name} 👋` : defaultSubtitle;
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
-
+  const handleToggle = () => {
+    if (window.innerWidth <= 1024) {
+      setMobileOpen((o) => !o);
+    } else {
+      setCollapsed((c) => !c);
+    }
+  };
 
   return (
     <div className="layout">
-      <Sidebar collapsed={collapsed} />
+      <Sidebar collapsed={collapsed} mobileOpen={mobileOpen} />
+      {mobileOpen && <div className="sidebar-backdrop" onClick={() => setMobileOpen(false)} />}
       <div className="layout-main">
         <Navbar
-          onToggleSidebar={() => setCollapsed((c) => !c)}
+          onToggleSidebar={handleToggle}
           pageTitle={title}
           pageSubtitle={subtitle}
         />

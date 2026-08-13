@@ -43,7 +43,7 @@ const menuItems = [
   { label: 'Backup', icon: <MdOutlineBackup />, path: '/backup' },
 ];
 
-export default function Sidebar({ collapsed }) {
+export default function Sidebar({ collapsed, mobileOpen }) {
   const location = useLocation();
 
   // Auto-expand Renewal Center if current path is a submenu route
@@ -56,7 +56,7 @@ export default function Sidebar({ collapsed }) {
   }, [isRenewalRoute]);
 
   return (
-    <aside className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''}`}>
+    <aside className={`sidebar ${collapsed ? 'sidebar-collapsed' : ''} ${mobileOpen ? 'mobile-open' : ''}`}>
       <div className="sidebar-logo" style={{ justifyContent: collapsed ? 'center' : 'flex-start', alignItems: 'center', gap: '12px' }}>
         <img
           src={logo}

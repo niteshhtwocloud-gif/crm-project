@@ -157,14 +157,17 @@
   font-size: 14px;
 }
 
-
-
 @media (max-width: 1024px) {
   .sidebar {
     position: fixed;
     left: 0;
     top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .sidebar.mobile-open {
     transform: translateX(0);
+    box-shadow: 0 0 40px rgba(0,0,0,0.4);
   }
   .sidebar-collapsed {
     transform: translateX(-100%);
@@ -172,3 +175,7 @@
     min-width: 264px;
   }
 }
+
+
+
+

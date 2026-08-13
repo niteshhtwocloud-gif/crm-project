@@ -258,3 +258,18 @@
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+  }
+  .navbar-title {
+    font-size: 16px;
+  }
+  .navbar-subtitle {
+    display: none;
+  }
+  .navbar-right {
+    gap: 8px;
+  }
+}

@@ -51,11 +51,22 @@
 @media (max-width: 1024px) {
   .layout-content {
     padding: 20px;
+    width: 100%;
+    min-width: 0;
   }
 }
 
 @media (max-width: 640px) {
   .layout-content {
     padding: 14px;
+    width: 100%;
+    min-width: 0;
   }
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 90;
 }

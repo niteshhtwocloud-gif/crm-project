@@ -84,6 +84,8 @@ ul {
 
 .scroll-x {
   overflow-x: auto;
+  max-width: 100%;
+  width: 100%;
 }
 
 .card-title {
@@ -217,6 +219,15 @@ ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-group.full-width {
+    grid-column: span 1;
+  }
 }
 
 .form-group {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Navbar from "../components/Navbar/Navbar";
@@ -23,6 +23,10 @@ export default function DashboardLayout({ onLogout }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { currentUser } = useCRM();
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   const meta = titleMap[location.pathname] || { title: "Vendor CRM", subtitle: "" };
 
